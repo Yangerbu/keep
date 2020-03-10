@@ -1,0 +1,31 @@
+package com.keep.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.keep.mapper.UserInfoMapper;
+import com.keep.pojo.UserInfo;
+import com.kepp.vo.UserInfoVo;
+
+@Service
+public class UserInfoServiceImpl implements UserInfoService{
+	
+	@Autowired
+	private UserInfoMapper userInfoMapper;
+
+	@Override
+	public UserInfoVo findUserInfoTable(Integer currentPage,Integer rows) {
+		//select * from tb_user_info limit 
+		/*
+		 * QueryWrapper<UserInfo> query=new QueryWrapper<>();
+		 * query.orderByDesc("modifiedTime");
+		 */
+		IPage<UserInfo> page=new Page<>(currentPage, rows);
+		IPage<UserInfo> userInfoPage=userInfoMapper.selectPage(page, null);
+		return new UserInfoVo(userInfoPage.getTotal(),userInfoPage.getRecords());
+	}
+
+}

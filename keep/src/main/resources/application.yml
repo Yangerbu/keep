@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    password: buyuanyang..3
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_keep?serverTimezone=GMT%2B8
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+server:
+  port: 8090
+  servlet:
+    context-path: /
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.keep.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.keep.mapper: debug
