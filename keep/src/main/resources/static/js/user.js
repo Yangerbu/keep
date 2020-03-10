@@ -1,7 +1,7 @@
 layui.define('table',function(exports){
 	var table=layui.table;
 	table.render({
-		elem : '#demo',
+		elem : '#user',
 		height : 473,
 		url : '/user/findUserInfoTable' //数据接口
 		,
