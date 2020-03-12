@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.keep.service.UserInfoService;
-import com.kepp.vo.UserInfoVo;
+import com.kepp.vo.InfoVo;
 
 @Controller
 @RequestMapping("user")
@@ -17,9 +17,9 @@ public class UserInfoController {
 	//默认会自动传递两个参数：?page=1&limit=30
 	@RequestMapping("findUserInfoTable")
 	@ResponseBody
-	public UserInfoVo findUserInfoTable(Integer page,Integer limit) {
+	public InfoVo findUserInfoTable(Integer page,Integer limit) {
 		System.out.println(page+":"+limit);
-		UserInfoVo list=userInfoService.findUserInfoTable(page,limit);
+		InfoVo list=userInfoService.findUserInfoTable(page,limit);
 		return list;
 	}
 	@RequestMapping("doLogin")

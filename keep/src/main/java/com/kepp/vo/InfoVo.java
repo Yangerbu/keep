@@ -13,13 +13,13 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class UserInfoVo {
+public class InfoVo {
 	private  Integer code=0;
 	private  String msg="OK";
 	private  Long count;
 	private  Object data;
 	
-	public UserInfoVo(long total, List<UserInfo> records) {
+	public InfoVo(long total, Object records) {
 		this.code=0;
 		this.msg="ok";
 		this.count=total;

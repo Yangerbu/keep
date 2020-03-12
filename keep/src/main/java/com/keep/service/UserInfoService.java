@@ -3,11 +3,11 @@ package com.keep.service;
 import java.util.List;
 
 import com.keep.pojo.UserInfo;
-import com.kepp.vo.UserInfoVo;
+import com.kepp.vo.InfoVo;
 
 public interface UserInfoService {
 
-	UserInfoVo findUserInfoTable(Integer currentPage,Integer rows);
+	InfoVo findUserInfoTable(Integer currentPage,Integer rows);
 
 
 }

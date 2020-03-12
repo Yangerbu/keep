@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.keep.mapper.UserInfoMapper;
 import com.keep.pojo.UserInfo;
-import com.kepp.vo.UserInfoVo;
+import com.kepp.vo.InfoVo;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService{
@@ -17,7 +17,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 	private UserInfoMapper userInfoMapper;
 
 	@Override
-	public UserInfoVo findUserInfoTable(Integer currentPage,Integer rows) {
+	public InfoVo findUserInfoTable(Integer currentPage,Integer rows) {
 		//select * from tb_user_info limit 
 		/*
 		 * QueryWrapper<UserInfo> query=new QueryWrapper<>();
@@ -25,7 +25,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 		 */
 		IPage<UserInfo> page=new Page<>(currentPage, rows);
 		IPage<UserInfo> userInfoPage=userInfoMapper.selectPage(page, null);
-		return new UserInfoVo(userInfoPage.getTotal(),userInfoPage.getRecords());
+		return new InfoVo(userInfoPage.getTotal(),userInfoPage.getRecords());
 	}
 
 }
