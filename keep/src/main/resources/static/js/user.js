@@ -76,7 +76,8 @@ layui.define(['table','layer'],function(exports){
 			layer.confirm('真的删除行么', function(index){
 		        console.log(index);
 		        layer.close(index);
-		        $.post("user/delete",{id:id},function(data){
+		        $.get("user/delete",{id:id},function(data){
+		        	console.log(data);
 		        	if(data.status==200){
 		        		res.del();
 		        	}else{

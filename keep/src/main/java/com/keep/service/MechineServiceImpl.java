@@ -18,7 +18,7 @@ public class MechineServiceImpl implements MechineService {
 
 	@Override
 	public InfoVo getMechineTableIndo(Integer page, Integer limit) {
-		IPage<Material> ipage=new Page(page, limit);
+		IPage<Material> ipage=new Page<Material>(page, limit);
 		QueryWrapper<Material> queryWrapper=new QueryWrapper<>();
 		queryWrapper.orderByDesc("in_time");
 		IPage<Material> selectPage = mechineMapper.selectPage(ipage, null);

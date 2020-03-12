@@ -48,9 +48,10 @@ layui.define('table',function(exports){
 	});
 	//监听
 	table.on('tool(classes)', function(res) {
-		console.log(res);
+		var table=table.checkStatus('classes');
+		console.log(table);
 		if (res.event === 'edit') {
-			layer.open({
+			/*layer.open({
 				type : 2,
 				title : '修改',
 				maxmin : true,
@@ -58,7 +59,7 @@ layui.define('table',function(exports){
 				shadeClose : true, //点击遮罩关闭层
 				area : [ '600px', '320px' ],
 				content : 'update'
-			});
+			});*/
 
 		}
 
