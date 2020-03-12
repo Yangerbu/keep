@@ -44,13 +44,27 @@ CREATE TABLE `tb_material` (
   `nums` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `in_time` date DEFAULT NULL,
-  `fix_time` int(11) DEFAULT NULL,
+  `fix_time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tb_material` */
 
-insert  into `tb_material`(`id`,`name`,`nums`,`price`,`in_time`,`fix_time`) values (1,'跑步机',5,599,NULL,NULL),(2,'单杠',2,999,NULL,NULL),(3,'哑铃',10,24,NULL,NULL),(4,'美腰机',3,1888,NULL,NULL),(5,'台阶机',4,7500,NULL,NULL),(6,'跳绳',20,15,NULL,NULL),(7,'划船器',6,3400,NULL,NULL),(8,'坐姿推胸机',4,4446,NULL,NULL);
+insert  into `tb_material`(`id`,`name`,`nums`,`price`,`in_time`,`fix_time`) values (1,'跑步机',5,599,'2020-03-12','2020-03-13'),(2,'单杠',2,999,'2020-03-12','2020-03-13'),(3,'哑铃',10,24,'2020-03-12','2020-03-13'),(4,'美腰机',3,1888,'2020-03-12','2020-03-14'),(5,'台阶机',4,7500,'2020-03-12','2020-03-13'),(6,'跳绳',20,15,'2020-03-12','2020-03-13'),(7,'划船器',6,3400,'2020-03-12','2020-03-14'),(8,'坐姿推胸机',4,4446,'2020-03-12','2020-03-14');
+
+/*Table structure for table `tb_message` */
+
+DROP TABLE IF EXISTS `tb_message`;
+
+CREATE TABLE `tb_message` (
+  `id` int(11) DEFAULT NULL,
+  `content` char(255) DEFAULT NULL,
+  `creat` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tb_message` */
+
+insert  into `tb_message`(`id`,`content`,`creat`) values (1,'本次服务不错','2020-03-12'),(2,'健身器材太好用了','2020-03-12'),(3,'你不得不逼着自己更优秀，因为身后许多贱人等着看你的笑话，在薄情的世界里深情的活着。','2020-03-12'),(4,NULL,NULL);
 
 /*Table structure for table `tb_user` */
 
