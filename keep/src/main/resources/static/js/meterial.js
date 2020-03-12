@@ -6,7 +6,7 @@ layui.define('table',function(exports){
 		url : '/mechine/getMechineTableInfo' //数据接口
 		,
 		toolbar: '#toolbarDemo',
-		page : false //开启分页
+		page : true //开启分页
 		,
 		cols : [ [ //表头
 			{type: 'checkbox'},	
