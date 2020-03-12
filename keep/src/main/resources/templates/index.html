@@ -88,18 +88,12 @@
 						© layui.com - 底部固定区域
 					</div>
 			</div>
-<script src="../layui/layui.js"></script>
-<script src="../jquery/jquery.min.js"></script>
+<script src="layui/layui.js"></script>
+<script src="jquery/jquery.min.js"></script>
 <script>
-	layui.config({
-			base : '/js/'
-		}).extend({
-			user:'user'
-		})
 		/**/
-		layui.use([ 'element', 'user' ], function() {
+		layui.use([ 'element' ], function() {
 			var element = layui.element;
-			//var user = layui.user;
 			//监听导航元素
 			//获取table的内容,利用ajax获取table页面
 			element.on("nav(test)",function(data){
@@ -152,7 +146,6 @@
 							});
 							element.tabChange("member",id);
 						}
-					//当我点击的id在tab中没有，就创建
 					}
 					
 				}

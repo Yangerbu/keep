@@ -1,4 +1,4 @@
-layui.define('table',function(exports){
+layui.define(['table','layer'],function(exports){
 	var table=layui.table;
 	table.render({
 		elem : '#user',
@@ -54,18 +54,23 @@ layui.define('table',function(exports){
 		}
 	});
 	table.on('tool(test)', function(res) {
-		console.log(res);
+		var user=res.data;
+		
 		if (res.event === 'edit') {
-			layer.open({
-				type : 2,
-				title : '修改',
-				maxmin : true,
-				closeBtn : 1,
-				shadeClose : true, //点击遮罩关闭层
-				area : [ '600px', '320px' ],
-				content : 'update'
-			});
-
+			$.post('update', {
+				id:user.id,
+				name:user.name,
+				age:user.age,
+				tel:user.tel,
+				addr:user.addr
+			}, function(data){
+				  layer.open({
+				    type: 1,
+				    icon: 5,
+				    area: ['700px', '350px'],
+				    content: data //注意，如果str是object，那么需要字符拼接。
+				  });
+				});
 		}
 
 	})

@@ -3,32 +3,32 @@
 <head>
 <meta charset="utf-8">
 <title>layui.form小例子</title>
-<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
 </head>
 <body>
-<form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+<form class="layui-form" action="/user/update"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
   <div class="layui-form-item">
     <label class="layui-form-label">姓名</label>
     <div class="layui-input-block">
-      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+      <input type="text" name="name" th:value="${user.name}" placeholder="请输入" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">年龄</label>
     <div class="layui-input-block">
-      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+      <input type="text" name="age" th:value="${user.age}" placeholder="请输入" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">电话</label>
     <div class="layui-input-block">
-      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+      <input type="text" name="tel" th:value="${user.tel}" placeholder="请输入" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">住址</label>
     <div class="layui-input-block">
-      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+      <input type="text" name="addr" th:value="${user.addr}" placeholder="请输入" autocomplete="off" class="layui-input">
     </div>
   </div>
   
@@ -38,14 +38,11 @@
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
-  <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
 </form>
-<script src="../layui/layui.js"></script>
 <script>
 layui.use('form', function(){
-  var form = layui.form;
-  
-  //各种基于事件的操作，下面会有进一步介绍
+	var form = layui.form;
+  	
 });
 </script>
 </body>
