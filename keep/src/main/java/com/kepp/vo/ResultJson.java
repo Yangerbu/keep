@@ -10,15 +10,20 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class ResultJson {
-	private  Integer code=0;
-	private  String msg="OK";
-	private  Integer count;
+	private  Integer status;
+	private  String msg;
 	private  Object data;
 	
-	public static ResultJson success(Integer count,Object data) {
-		return new ResultJson(0,"OK",count,data);
+	public static ResultJson success() {
+		return new ResultJson(200,"OK",null);
+	}
+	public static ResultJson success(String msg) {
+		return new ResultJson(200,msg,null);
+	}
+	public static ResultJson success(Object data) {
+		return new ResultJson(200,"OK",data);
 	}
 	public static ResultJson fail() {
-		return new ResultJson(1,"Not Fount",null,null);
+		return new ResultJson(401,"Not Fount",null);
 	}
 }

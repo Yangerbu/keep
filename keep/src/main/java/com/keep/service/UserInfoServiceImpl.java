@@ -33,4 +33,9 @@ public class UserInfoServiceImpl implements UserInfoService{
 		userInfoMapper.updateById(user);
 	}
 
+	@Override
+	public void deleteUser(Integer id) {
+		userInfoMapper.deleteById(id);
+	}
+
 }

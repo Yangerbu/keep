@@ -11,5 +11,7 @@ public interface UserInfoService {
 
 	void updateUser(UserInfo user);
 
+	void deleteUser(Integer id);
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.keep.pojo.UserInfo;
 import com.keep.service.UserInfoService;
 import com.kepp.vo.InfoVo;
+import com.kepp.vo.ResultJson;
 
 @Controller
 @RequestMapping("user")
@@ -32,5 +33,12 @@ public class UserInfoController {
 	public String updateUser(UserInfo user) {
 		 userInfoService.updateUser(user);
 		return "redirect:/table"; 
+	}
+	@RequestMapping("delete")
+	@ResponseBody
+	public ResultJson deleteUser(Integer id) {
+		System.out.println(id);
+		userInfoService.deleteUser(id);
+		return ResultJson.success();
 	}
 }

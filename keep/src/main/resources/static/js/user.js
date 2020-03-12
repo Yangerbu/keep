@@ -71,6 +71,19 @@ layui.define(['table','layer'],function(exports){
 				    content: data //注意，如果str是object，那么需要字符拼接。
 				  });
 				});
+		}else if(res.event=='del'){
+			var id=user.id;
+			layer.confirm('真的删除行么', function(index){
+		        console.log(index);
+		        layer.close(index);
+		        $.post("user/delete",{id:id},function(data){
+		        	if(data.status==200){
+		        		res.del();
+		        	}else{
+		        		layer.msg("删除失败");
+		        	}
+		        });
+		     });
 		}
 
 	})
