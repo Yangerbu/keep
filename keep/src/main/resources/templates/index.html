@@ -108,6 +108,7 @@
 				var table;
 				var tableForUser="<iframe src='/table' style='width:1047px;height:520px;border:0px'></iframe>";
 				var tableForMechine="<iframe src='/meterial' style='width:880px;height:520px;border:0px'></iframe>";
+				var tableForClasses="<iframe src='/classes' style='width:1047px;height:570px;border:0px'></iframe>";
 				if(text=="会员信息"||text=="器材信息"||text=="课程信息"){
 					//去重
 					//当tab上的选项卡上的id与点击的导航栏的id一致则创建选项卡，否则不创建
@@ -117,6 +118,9 @@
 					}
 					if(id==2){
 						table=tableForMechine;
+					}
+					if(id==3){
+						table=tableForClasses;
 					}
 					var li=$(".layui-tab-title > li");
 					if(li.length==0){
