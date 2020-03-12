@@ -7,6 +7,11 @@
 </head>
 <body>
 <form class="layui-form" action="/user/update"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+  <div class="layui-form-item" style="display: none;">
+    <div class="layui-input-block">
+      <input type="text" name="id" th:value="${user.id}" placeholder="请输入" autocomplete="off" class="layui-input">
+    </div>
+  </div>
   <div class="layui-form-item">
     <label class="layui-form-label">姓名</label>
     <div class="layui-input-block">

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.keep.pojo.UserInfo;
 import com.keep.service.UserInfoService;
 import com.kepp.vo.InfoVo;
 
@@ -26,5 +27,10 @@ public class UserInfoController {
 	public String doLogin(String username,String password) {
 		System.out.println(username);
 		return "index";
+	}
+	@RequestMapping("update")
+	public String updateUser(UserInfo user) {
+		 userInfoService.updateUser(user);
+		return "redirect:/table"; 
 	}
 }

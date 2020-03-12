@@ -28,4 +28,9 @@ public class UserInfoServiceImpl implements UserInfoService{
 		return new InfoVo(userInfoPage.getTotal(),userInfoPage.getRecords());
 	}
 
+	@Override
+	public void updateUser(UserInfo user) {
+		userInfoMapper.updateById(user);
+	}
+
 }
