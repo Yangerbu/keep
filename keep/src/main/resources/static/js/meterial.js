@@ -1,4 +1,4 @@
-layui.define('table',function(exports){
+layui.define(['table','layer'],function(exports){
 	var table=layui.table;
 	table.render({
 		elem : '#meterial',
@@ -47,19 +47,40 @@ layui.define('table',function(exports){
 	
 	});
 	//监听
-	table.on('tool(test)', function(res) {
-		console.log(res);
-		if (res.event === 'edit') {
-			layer.open({
-				type : 2,
-				title : '修改',
-				maxmin : true,
-				closeBtn : 1,
-				shadeClose : true, //点击遮罩关闭层
-				area : [ '600px', '320px' ],
-				content : 'update'
+	table.on('tool(mechine)', function(res) {
+		var opt=res.event;
+		var mechine=res.data;
+		console.log(mechine);
+		if (opt === 'edit') {
+			$.post('/machine_update',{
+				id:mechine.id,
+				name:mechine.name,
+				nums:mechine.nums,
+				price:mechine.price
+			},function(data){
+				 layer.open({
+					    type: 1,
+					    icon: 5,
+					    area: ['700px', '350px'],
+					    content: data //注意，如果str是object，那么需要字符拼接。
+					  });
 			});
-
+		}else if(opt==='del'){
+			/**
+			 * 还没有实现批量删除
+			 */
+			var id=mechine.id;
+			layer.confirm('真的删除行么', function(index){
+		        layer.close(index);
+		        $.get("mechine/delete",{id:id},function(data){
+		        	console.log(data);
+		        	if(data.status==200){
+		        		res.del();
+		        	}else{
+		        		layer.msg("删除失败");
+		        	}
+		        });
+		     });
 		}
 
 	})

@@ -24,4 +24,14 @@ public class MechineServiceImpl implements MechineService {
 		IPage<Material> selectPage = mechineMapper.selectPage(ipage, null);
 		return new InfoVo(selectPage.getTotal(),selectPage.getRecords());
 	}
+
+	@Override
+	public void mechineUpdate(Material material) {
+		mechineMapper.updateById(material);
+	}
+
+	@Override
+	public void mechineDelete(Integer id) {
+		mechineMapper.deleteById(id);
+	}
 }
