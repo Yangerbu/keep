@@ -1,4 +1,4 @@
-layui.define('table',function(exports){
+layui.define(['table','layer'],function(exports){
 	var table=layui.table;
 	table.render({
 		elem : '#classes',
@@ -48,19 +48,40 @@ layui.define('table',function(exports){
 	});
 	//监听
 	table.on('tool(classes)', function(res) {
-		var table=table.checkStatus('classes');
-		console.log(table);
-		if (res.event === 'edit') {
-			/*layer.open({
-				type : 2,
-				title : '修改',
-				maxmin : true,
-				closeBtn : 1,
-				shadeClose : true, //点击遮罩关闭层
-				area : [ '600px', '320px' ],
-				content : 'update'
-			});*/
+		var opt=res.event;
+		var classes=res.data;
+		console.log(classes);
+		
+		if (opt === 'edit') {
+			$.post('/classes_update',{
+				id:classes.id,
+				className:classes.className,
+				teacher:classes.teacher,
+				classTime:classes.classTime,
+				nums:classes.nums,
+				price:classes.price
+			},function(data){
+				 layer.open({
+					    type: 1,
+					    icon: 5,
+					    area: ['700px', '350px'],
+					    content: data //注意，如果str是object，那么需要字符拼接。
+					  });
+			});
 
+		}else if(opt === 'del'){
+			var id=classes.id;
+			layer.confirm('真的删除行么', function(index){
+		        layer.close(index);
+		        $.get("classes/delete",{id:id},function(data){
+		        	console.log(data);
+		        	if(data.status==200){
+		        		res.del();
+		        	}else{
+		        		layer.msg("删除失败");
+		        	}
+		        });
+		     });
 		}
 
 	})

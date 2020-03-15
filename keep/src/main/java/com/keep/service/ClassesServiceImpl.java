@@ -22,4 +22,14 @@ public class ClassesServiceImpl implements ClassesService {
 		return new InfoVo(selectPage.getTotal(), selectPage.getRecords());
 	}
 
+	@Override
+	public void classesUpdate(Classes classes) {
+		classesMapper.updateById(classes);
+	}
+
+	@Override
+	public void classesDelete(Integer id) {
+		classesMapper.deleteById(id);
+	}
+
 }
